@@ -1,0 +1,11 @@
+<view class='root'>
+<view class="container">
+  <view class='text-area-container'>
+    <input class='name,input-box' bindinput='handleInput' auto-focus placeholder='名字是？'/>
+  </view>
+
+  <view class='btn-container'>
+    <button class='btn save-btn' bindtap='handleSave'>保存</button>
+  </view>
+</view>
+</view>

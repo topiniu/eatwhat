@@ -1,0 +1,53 @@
+.list-container{
+  display: flex;
+  flex-direction: column;
+}
+.food-item{
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  /* border-top: 1px solid #999; */
+  border-bottom: 1px solid #999;
+}
+.list-box{
+  margin-bottom: 60px;
+}
+.func-panel{
+  width: 100%;
+  /* height: 200px; */
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+.btn{
+  width: 150px;
+  height: 40px;
+  background: #1890ff;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+}
+.btn-small{
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  background: #ff4d4f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 30px;
+  font-size: 18px;
+  color: white;
+}
+.btn-my{
+  margin-right: 10px;
+}

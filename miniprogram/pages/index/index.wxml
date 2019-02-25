@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='item-container' style='height: {{containerHeight}}'>
+    <view
+    wx:for="{{itemList}}" class='item' style='{{item.style}}' wx:key="{{item._id}}">
+    <view animation="{{animations[index]}}" bindtap='handleClick' data-index="{{index}}"  style='word-wrap:no-wrap;color: {{item.color}}'> {{item.name}}</view>
+    </view>
+  </view>
+  <view class='btn-container'>    
+      <button style='width: 30px' class="add-btn one" bindtap="navToAdd" style='background-color: {{addBtnBackground}}; color: {{addBtnFront}}'>
+        +
+      </button>   
+      <button style='width: 50px' class="add-btn two" bindtap="navToList" style='background-color: {{addBtnBackground}}; color: {{addBtnFront}}'>
+        列表
+      </button>
+      <button style='width: 70px' class="add-btn three" bindtap="choose" style='background-color: {{addBtnBackground}}; color: {{addBtnFront}}'>
+        吃什么
+      </button>
+  </view>
+</view>

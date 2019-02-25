@@ -1,0 +1,11 @@
+<view>
+  <view class='list-container'>
+    <view class='list-box'>
+    <view class='food-item' wx:for="{{foodList}}" wx:key="{{item._id}}">
+      <view class='name'>{{item.name}}</view>
+      
+      <view wx:if="{{item._openid && item._openid === openid}}" class='btn-small' data-id="{{item._id}}" bindtap='delItem'>删除</view>
+    </view>
+    </view>
+  </view>
+</view>
