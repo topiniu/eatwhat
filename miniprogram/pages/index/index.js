@@ -316,6 +316,9 @@ Page({
   },
 
   choose: function(e) {
+    wx.vibrateShort({
+      success: (res) => {},
+    })
     wx.showModal({
       title: '待会吃',
       content: this.data.itemList[this.rd(0, this.data.itemList.length - 1)].name,

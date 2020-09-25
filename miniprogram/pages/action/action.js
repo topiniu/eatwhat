@@ -10,8 +10,9 @@ Page({
   loadData(){
     let self = this;
     wx.cloud.callFunction({
-      name: 'getUserInfo',
+      name: 'queryInfo',
       complete: (w) => {
+        console.log(w)
         ajax.getAllFood({}).then(res => {
           self.setData({
             openid: w.result.openid,
