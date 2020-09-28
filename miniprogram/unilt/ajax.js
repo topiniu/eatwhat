@@ -77,6 +77,23 @@ function getCount(params) {
   return p;
 }
 
+function getRandomFood(params) {
+  var fn = new Promise(
+    function (resolve, reject) {
+      let p = [];
+      getCount(params).then((res) => {
+        console.log(res)
+        // let page = Math.ceil(res / 20, 10);
+        // console.log(page)
+        let _p = rd(1, res / 20)
+        findFood(params, _p, 20).then(ress => {
+          resolve(ress)
+        })
+      })
+    }
+  )
+  return fn
+}
 function getAllFood(params) {
   var fn = new Promise(
     function (resolve, reject) {
@@ -125,7 +142,13 @@ function deleteFood(id){
 }
 
 
+function rd(n, m) {
+  var c = m - n + 1;
+  return Math.floor(Math.random() * c + n);
+}
 
 exports.addFood = addFood
 exports.getAllFood = getAllFood
 exports.deleteFood = deleteFood
+exports.findFood = findFood
+exports.getRandomFood = getRandomFood

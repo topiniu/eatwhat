@@ -2,8 +2,8 @@
 <view class="container">
   <view class='item-container' style='height: {{containerHeight}}'>
     <view
-    wx:for="{{itemList}}" class='item' style='{{item.style}}' wx:key="{{item._id}}">
-    <view animation="{{animations[index]}}" bindtap='handleClick' data-index="{{index}}"  style='word-wrap:no-wrap;color: {{item.color}}'> {{item.name}}</view>
+    wx:for="{{itemList}}" class="item {{item.isNotice === '1' ?'notice':''}}" style='{{item.style}}' wx:key="{{item._id}}">
+    <view animation="{{animations[index]}}" bindtap='handleClick' data-index="{{index}}"  style='word-wrap:no-wrap;color: {{item.color}}' class="ioio {{item.isNotice === '1' ?'notice':''}}"> {{item.name}}</view>
     </view>
   </view>
   <view class='btn-container'>    

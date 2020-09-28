@@ -4,8 +4,11 @@
     <input class='name,input-box' bindinput='handleInput' auto-focus placeholder='名字是？'/>
   </view>
 
-  <view class='btn-container'>
-    <button class='btn save-btn' bindtap='handleSave'>保存</button>
+  <view class="btn">
+  <view hover-class='add-btn-hover' bindtap='handleSave' class="add-btn">
+    <!-- <button class='btn-icon' bindtap='handleSave'>保存</button> -->
   </view>
+  </view>
+  
 </view>
 </view>

@@ -293,11 +293,17 @@ Page({
     this.setData({
       itemList: []
     });
-    ajax.getAllFood({}).then(res => {
+    ajax.getRandomFood({}).then(res => {
+      res.push({
+        _id: "8e5be7055f6d7c68008a4098560afb4f",
+        _openid: "olFGa5T8uPxKoYxxRY3yzjV_pjsc",
+        name: "通知：禁止彭成伟、谷阳阳、靳阳阳三位用户使用本小程序",
+        isNotice: '1'
+      })
       this.data.itemList = res;
 
       wx.getSystemInfo({
-        success: function(res) {
+        success: function (res) {
           self.setData({
             addBtnBackground: getApp().globalData.backColor,
             containerHeight: res.windowHeight + 'px',
@@ -315,7 +321,7 @@ Page({
     return Math.floor(Math.random() * c + n);
   },
 
-  choose: function(e) {
+  choose: function (e) {
     wx.vibrateShort({
       success: (res) => {},
     })
@@ -326,7 +332,7 @@ Page({
   },
 
 
-  navToAdd: function(e) {
+  navToAdd: function (e) {
     wx.navigateTo({
       url: '../add/add',
     })
@@ -346,10 +352,18 @@ Page({
       let top = this.rd(1, parseInt(this.data.containerHeight) - 30);
       let left = this.rd(0, 1000);
       let anitime = 0;
+      let color = self.data.colorList[self.rd(0, self.data.colorList.length - 1)]
       if (this.data.itemList[i].name.length > 10)
         anitime = this.rd(10, 15);
       else
         anitime = this.rd(12, 18);
+
+      if(this.data.itemList[i].isNotice === '1'){
+        this.data.itemList[i].opacity = 1
+        top = 10
+        anitime = 20
+        color = '#ff0000'
+      }
 
       let flagP = false;
       for (let u = 0; u < flag.length; u++) {
@@ -359,11 +373,12 @@ Page({
       }
       if (!flagP) {
         processedData[processedData.length] = {
+          ...this.data.itemList[i],
           name: this.data.itemList[i].name,
           top: top,
           left: left,
           anitime: anitime,
-          color: self.data.colorList[self.rd(0, self.data.colorList.length - 1)]
+          color: color
         }
         flag[flag.length] = {
           top: top,
@@ -390,7 +405,7 @@ Page({
   },
 
 
-  handleClick: function(e) {
+  handleClick: function (e) {
     console.log(e);
     let t = e.currentTarget.dataset.index;
     this.data.itemIndex = t;

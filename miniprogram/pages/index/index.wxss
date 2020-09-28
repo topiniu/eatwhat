@@ -15,6 +15,12 @@ page {
   opacity: 0;
   transition: all .3s;
 }
+.notice{
+  font-size: 50px;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 1;
+}
 
 @keyframes go{
   0% {
@@ -24,7 +30,7 @@ page {
     opacity: 1
   }
   100% {
-    left: -100%;
+    left: -400%;
   }
 }
 
